@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %} {% block content %}
+<div class="">
+  <div class="card" style="width: 700px;">
+    <div class="card-header">
+      <img src="{{article.thumb.url}}" style="width: 700px;">
+    </div>
+    <div class="card-body">
+    <h1>{{article.title}}</h1>
+    <p>{{article.body}}</p>
+    <p>{{article.date}}</p>
+  </div>
+  <div class="card-footer">
+  <p>{{article.author}}</p>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'accounts/base.html' %}
+    {% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h1 class="display-4 text-info">Add new article</h1>
+        </div>
+    
+    <form class="" action="{% url 'blogapp:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card-body form-group">
+        {{form}}
+        </div>
+        <div class="card-footer form-group">
+        <input type="submit" value="Create">
+        </div>
+    </form>
+    </div>
+    {% endblock %} 
+
+  

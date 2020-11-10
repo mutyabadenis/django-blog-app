@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body class="">
+    
+        <ul class="nav justify-content-end bg-info">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <form action="{% url 'accounts:logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" type="submit">logout</button>
+                </form>
+               
+            </li>
+            <li class="nav-item text-light"><a class="nav-link" href="{% url 'blogapp:create' %}">Create Article</a></li>
+            {% else %}
+            <li class="nav-item text-light"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+            <li class="nav-item text-light"><a class="nav-link" href="{% url 'accounts:signup' %}">Signup</a></li>
+
+            {% endif %}
+        </ul>
+    
+    <div class="container">
+    {% block content %}
+    <h1><a href="{% url 'blogapp:article_list' %}"></a></h1>
+    {% endblock %} 
+    </div>
+</body>
+</html>
